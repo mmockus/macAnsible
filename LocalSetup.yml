@@ -1,0 +1,12 @@
+---
+
+- name: run this playbook localhost
+  hosts: 127.0.0.1
+  connection: local
+  become: no
+  tasks:
+  - name: print out the hostname of target
+    command: hostname -A
+    register: hostname
+  - debug: msg="output {{ hostname.stdout }}"
+  - debug: msg="error  {{ hostname.stderr }}"

@@ -1,0 +1,9 @@
+---
+- hosts: kubernetes
+  remote_user: michaelmockus
+  tasks:
+  - name: print out the hostname of target
+    command: hostname -A
+    register: hostname
+  - debug: msg="output {{ hostname.stdout }}"
+  - debug: msg="error  {{ hostname.stderr }}"
